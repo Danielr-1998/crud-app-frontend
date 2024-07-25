@@ -1,0 +1,12 @@
+<h2>{{ isEditMode ? 'Edit' : 'Add' }} Item</h2>
+<form (ngSubmit)="saveItem()">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" [(ngModel)]="item.name" name="name">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input id="description" [(ngModel)]="item.description" name="description">
+  </div>
+  <button type="submit">{{ isEditMode ? 'Update' : 'Create' }}</button>
+</form>

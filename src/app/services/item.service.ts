@@ -14,10 +14,14 @@ export interface Item {
 export class ItemService {
   private apiUrl = 'http://localhost:3000/items';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getItems(): Observable<Item[]> {
     return this.http.get<Item[]>(this.apiUrl);
+  }
+
+  getItem(id: number): Observable<Item> {
+    return this.http.get<Item>(`${this.apiUrl}/${id}`);
   }
 
   addItem(item: Item): Observable<Item> {
